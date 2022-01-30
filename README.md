@@ -2,6 +2,8 @@
 
 Для сборки необходимы пакеты gcc, mske и библиотека mosquitto, утсновка на debian, ububtu - sudo apt install libmosquitto-dev build-essential
 
+
+
 Настройка MQTT сервера в файле mercury236mqtt.c
 
 #define MQTT_SERVER	"10.32.0.5" - IP адрес MQTT-сервера
@@ -9,6 +11,8 @@
 #define MQTT_USER	"" - Имя пользователя MQTT
 
 #define MQTT_PASSWORD	"" - пароль
+
+
 
 Для сборки - make
 
@@ -20,7 +24,11 @@
 
 ./mercury_daemon.sh - Убивает старый процесс и запускает в фоне новый.
 
+
+
 Если сервер MQTT перезапускается, то утилита может потерять связь с ним, необходимо перезапустить её. Можно поставить mercury_daemon.sh в cron каждый час, день.\
+
+
 
 Также есть настройки по частоте отправки данных в MQTT:
 
@@ -33,5 +41,7 @@
 #define LOOP_DELAY	60
 
 #define SKIP_SEND	1
+
+
 
 При высокой частоте опроса (менее 5 секунд) счётчик не успевает выдавать все данные.
